@@ -1,0 +1,40 @@
+package org.selenium;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class DropDown {
+	
+	public static void main(String[] args) throws InterruptedException {
+		
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\Greens-17\\Desktop\\Gopi\\Selenium\\Driver\\chromedriver.exe");
+		
+		WebDriver driver = new ChromeDriver();
+		
+		driver.get("http://adactin.com/HotelApp/");
+		
+		WebElement UserName=driver.findElement(By.id("username"));
+		UserName.sendKeys("Gopinathan");
+		
+		WebElement password=driver.findElement(By.id("password"));
+		password.sendKeys("Gopi@123");
+		
+		WebElement Btn=driver.findElement(By.id("login"));
+		Btn.click();
+		
+		
+		
+		
+		
+		
+		Thread.sleep(5000);
+		driver.quit();
+	}
+	
+	
+	
+	
+
+}

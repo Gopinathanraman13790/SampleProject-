@@ -1,0 +1,117 @@
+package org.selenium;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.GeckoDriverInfo;
+import org.openqa.selenium.support.ui.Select;
+
+public class DropDown {
+	
+	public static void main(String[] args) throws InterruptedException {
+		
+	//	System.setProperty("webdriver.chrome.driver","C:\\Users\\Greens-17\\Desktop\\Gopi\\Selenium\\Driver\\chromedriver.exe");
+		System.setProperty("webdriver.gecko.driver","C:\\Users\\Greens-17\\Desktop\\Gopi\\Selenium\\Driver\\geckodriver.exe");
+	//	WebDriver driver = new ChromeDriver();
+		
+		WebDriver driver =new FirefoxDriver();
+		
+		driver.get("http://adactin.com/HotelApp/");
+		
+		WebElement UserName=driver.findElement(By.id("username"));
+		UserName.sendKeys("Gopinathan");
+		
+		WebElement password=driver.findElement(By.id("password"));
+		password.sendKeys("Gopi@123");
+		
+		WebElement Btn=driver.findElement(By.id("login"));
+		Btn.click();
+		Thread.sleep(5000);
+		WebElement dDnLocation=driver.findElement(By.id("location"));
+		Select s=new Select(dDnLocation);
+//		s.selectByVisibleText("London");
+		s.selectByIndex(4);
+		
+		WebElement dDnHotel=driver.findElement(By.id("hotels"));
+		Select s1=new Select(dDnHotel);
+		s1.selectByVisibleText("Hotel Sunshine");
+		
+		WebElement dDnRoom=driver.findElement(By.id("room_type"));
+		Select s2=new Select(dDnRoom);
+		s2.selectByVisibleText("Deluxe");
+		
+		WebElement dDnRoomNo=driver.findElement(By.id("room_nos"));
+		Select s3=new Select(dDnRoomNo);
+		s3.selectByVisibleText("4 - Four");
+		
+		WebElement CinDate=driver.findElement(By.id("datepick_in"));
+		CinDate.sendKeys("20/11/2018");
+		
+		WebElement CoutDate=driver.findElement(By.id("datepick_out"));
+		CoutDate.sendKeys("21/11/2018");
+		
+		WebElement Adls=driver.findElement(By.id("adult_room"));
+		Select s4=new Select(Adls);
+		s4.selectByVisibleText("2 - Two");
+		
+		WebElement Children=driver.findElement(By.id("child_room"));
+		Select s5=new Select(Children);
+		s5.selectByVisibleText("3 - Three");
+		
+		WebElement Btn1=driver.findElement(By.className("reg_button"));
+		Btn1.click();
+		
+		WebElement Rbtn1=driver.findElement(By.id("radiobutton_0"));
+		Rbtn1.click();
+		
+		WebElement Btn2=driver.findElement(By.id("continue"));
+		Btn2.click();
+		
+		WebElement Fname=driver.findElement(By.id("first_name"));
+		Fname.sendKeys("Gopinathan");
+		
+		
+		WebElement Lname=driver.findElement(By.id("last_name"));
+		Lname.sendKeys("Raman");
+		
+		WebElement Address=driver.findElement(By.id("address"));
+		Address.sendKeys("Chennai");
+		
+		
+		WebElement Cnumber=driver.findElement(By.id("cc_num"));
+		Cnumber.sendKeys("7896541236054789");
+		
+		WebElement Ctype=driver.findElement(By.id("cc_type"));
+		Select s6=new Select(Ctype);
+		s6.selectByIndex(3);
+		
+		WebElement SeMonth=driver.findElement(By.id("cc_exp_month"));
+		Select s7=new Select(SeMonth);
+		s7.selectByIndex(3);
+		
+		WebElement SeYear=driver.findElement(By.id("cc_exp_year"));
+		Select s8=new Select(SeYear);
+		s8.selectByIndex(3);
+		
+		WebElement Ccvnumber=driver.findElement(By.id("cc_cvv"));
+		Ccvnumber.sendKeys("789");
+		
+		
+		WebElement Btn3=driver.findElement(By.id("book_now"));
+		Btn3.click();
+		Thread.sleep(1000);
+		WebElement Ordervnumber=driver.findElement(By.id(''));
+		String r=Ordervnumber.getAttribute("value");
+		System.out.println(r);
+		
+		Thread.sleep(5000);
+	//	driver.quit();
+	}
+	
+	
+	
+	
+
+}
